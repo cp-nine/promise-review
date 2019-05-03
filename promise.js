@@ -189,6 +189,7 @@ function user(aplicant) {
     if (dataPoint >= 70) {
       resolve(aplicant);
     } else {
+      aplicant.next = false;
       reject(aplicant);
     }
   });
@@ -218,6 +219,7 @@ function userInterview(aplicant) {
     if (interviewPoint >= 75) {
       resolve(aplicant);
     } else {
+      aplicant.next = false;
       reject(aplicant);
     }
   });
@@ -244,7 +246,6 @@ function success(data) {
 
 // step 3, 6, 7, 9, 10, 11
 function fail(data) {
-  data.next = false;
   hr(data, sendNotification);
 }
 
